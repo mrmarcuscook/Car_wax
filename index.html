@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShineTime - Premium Car Waxing Services</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css" id="main-stylesheet">
+  
+  <!-- CSS Live Reload Script -->
+  <script>
+    // Check for CSS changes every 3 seconds
+    setInterval(function() {
+      const currentLink = document.getElementById('main-stylesheet');
+      const newLink = document.createElement('link');
+      newLink.rel = 'stylesheet';
+      newLink.id = 'main-stylesheet';
+      newLink.href = 'styles.css?v=' + new Date().getTime();
+      
+      newLink.onload = function() {
+        if (currentLink) {
+          currentLink.remove();
+        }
+      };
+      
+      document.head.appendChild(newLink);
+    }, 3000); // Check every 3 seconds
+  </script>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div class="logo">
+        <i class="fas fa-car-side"></i>
+        <h1>ShineTime</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#" data-page="home" class="active">Home</a></li>
+          <li><a href="#" data-page="services">Services</a></li>
+          <li><a href="#" data-page="rewards">Rewards</a></li>
+          <li><a href="#" data-page="booking">Book Now</a></li>
+          <li><a href="#" data-page="about">About Us</a></li>
+          <li><a href="#" data-page="profile" id="profile-link">Profile</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <button id="login-btn" class="btn">Login</button>
+        <button id="signup-btn" class="btn btn-primary">Sign Up</button>
+        <div id="user-info" class="hidden">
+          <span id="user-name"></span>
+          <span id="user-stars"><i class="fas fa-star"></i> <span id="stars-count">0</span></span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Home Page -->
+      <section id="home" class="page active">
+        <div class="hero">
+          <div class="hero-content">
+            <h2>Professional Car Waxing Services</h2>
+            <p>Keep your vehicle looking its best with our premium waxing services</p>
+            <button class="btn btn-primary btn-large" id="hero-book-btn">Book Now</button>
+          </div>
+        </div>
+        
+        <div class="features">
+          <div class="feature">
+            <i class="fas fa-medal"></i>
+            <h3>Premium Quality</h3>
+            <p>We use only the highest quality products for your vehicle</p>
+          </div>
+          <div class="feature">
+            <i class="fas fa-star"></i>
+            <h3>Rewards Program</h3>
+            <p>Earn stars with every purchase and redeem for free services</p>
+          </div>
+          <div class="feature">
+            <i class="fas fa-calendar-check"></i>
+            <h3>Easy Booking</h3>
+            <p>Book and pay for your services directly through our app</p>
+          </div>
+        </div>
+        
+        <div class="testimonials">
+          <h2>What Our Customers Say</h2>
+          <div class="testimonial-container">
+            <div class="testimonial">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p>"ShineTime transformed my car! The premium wax package gave my vehicle a showroom shine that lasted for months."</p>
+              <div class="customer">
+                <div class="customer-name">Michael T.</div>
+              </div>
+            </div>
+            <div class="testimonial">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p>"I love the rewards program! I've already earned enough stars for a free basic wax. The service is always top-notch."</p>
+              <div class="customer">
+                <div class="customer-name">Sarah L.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Page -->
+      <section id="services" class="page">
+        <h2>Our Services</h2>
+        <div class="services-container">
+          <!-- Services will be loaded dynamically -->
+        </div>
+      </section>
+
+      <!-- Rewards Page -->
+      <section id="rewards" class="page">
+        <h2>Rewards Program</h2>
+        <div class="rewards-info">
+          <div class="reward-card">
+            <div class="reward-header">
+              <i class="fas fa-star"></i>
+              <h3>How It Works</h3>
+            </div>
+            <div class="reward-content">
+              <p>For every dollar you spend, you earn 10 stars in our rewards program.</p>
+              <p>Redeem your stars for free services and merchandise!</p>
+            </div>
+          </div>
+          
+          <div class="rewards-tiers">
+            <div class="tier">
+              <div class="tier-header">
+                <h3>50 Stars</h3>
+              </div>
+              <div class="tier-content">
+                <p>Free Basic Wash</p>
+                <p>Value: $25</p>
+              </div>
+            </div>
+            
+            <div class="tier">
+              <div class="tier-header">
+                <h3>100 Stars</h3>
+              </div>
+              <div class="tier-content">
+                <p>Free Basic Wax</p>
+                <p>Value: $50</p>
+              </div>
+            </div>
+            
+            <div class="tier">
+              <div class="tier-header">
+                <h3>200 Stars</h3>
+              </div>
+              <div class="tier-content">
+                <p>Free Premium Wax</p>
+                <p>Value: $90</p>
+              </div>
+            </div>
+            
+            <div class="tier">
+              <div class="tier-header">
+                <h3>300 Stars</h3>
+              </div>
+              <div class="tier-content">
+                <p>Free Ultimate Package</p>
+                <p>Value: $150</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Booking Page -->
+      <section id="booking" class="page">
+        <h2>Book Your Service</h2>
+        <div class="booking-container">
+          <div class="booking-form">
+            <div class="form-group">
+              <label for="service-select">Select Service</label>
+              <select id="service-select">
+                <option value="">-- Select a Service --</option>
+                <!-- Services will be loaded dynamically -->
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="booking-date">Select Date</label>
+              <input type="date" id="booking-date" min="">
+            </div>
+            
+            <div class="form-group">
+              <label for="booking-time">Select Time</label>
+              <select id="booking-time">
+                <option value="">-- Select a Time --</option>
+                <option value="09:00">9:00 AM</option>
+                <option value="10:00">10:00 AM</option>
+                <option value="11:00">11:00 AM</option>
+                <option value="12:00">12:00 PM</option>
+                <option value="13:00">1:00 PM</option>
+                <option value="14:00">2:00 PM</option>
+                <option value="15:00">3:00 PM</option>
+                <option value="16:00">4:00 PM</option>
+                <option value="17:00">5:00 PM</option>
+              </select>
+            </div>
+            
+            <div class="service-details hidden" id="service-details">
+              <h3>Service Details</h3>
+              <p><strong>Name:</strong> <span id="detail-name"></span></p>
+              <p><strong>Description:</strong> <span id="detail-description"></span></p>
+              <p><strong>Duration:</strong> <span id="detail-duration"></span></p>
+              <p><strong>Price:</strong> $<span id="detail-price"></span></p>
+              <p><strong>Stars you'll earn:</strong> <span id="detail-stars"></span> <i class="fas fa-star"></i></p>
+            </div>
+            
+            <button id="book-service-btn" class="btn btn-primary btn-large">Book & Pay Now</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Profile Page -->
+      <section id="profile" class="page">
+        <h2>Your Profile</h2>
+        <div class="profile-container">
+          <div class="profile-info">
+            <div class="profile-header">
+              <div class="profile-avatar">
+                <i class="fas fa-user-circle"></i>
+              </div>
+              <div class="profile-details">
+                <h3 id="profile-name">Not logged in</h3>
+                <p id="profile-email"></p>
+                <div class="profile-stars">
+                  <i class="fas fa-star"></i> <span id="profile-stars-count">0</span> stars
+                </div>
+              </div>
+            </div>
+            
+            <div class="profile-appointments">
+              <h3>Your Appointments</h3>
+              <div id="appointments-list">
+                <!-- Appointments will be loaded dynamically -->
+                <p id="no-appointments">No appointments found. <a href="#" data-page="booking">Book now</a>!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Us Page -->
+      <section id="about" class="page">
+        <h2>About Us</h2>
+        <div class="about-container">
+          <div class="about-content">
+            <div class="owner-profile">
+              <div class="owner-image">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Johnson - Owner">
+              </div>
+              <div class="owner-info">
+                <h3>Ricky Hall</h3>
+                <p class="owner-title">Founder & CEO</p>
+              </div>
+            </div>
+            
+            <div class="about-story">
+              <h3>Our Story</h3>
+              <p>ShineTime was founded in 2020 by Ricky Hall, a car enthusiast with over 15 years of experience in the automotive detailing industry. After working for several high-end detailing shops, Ricky noticed a gap in the market for premium waxing services that were both accessible and affordable.</p>
+              <p>What started as a small operation in Ricky's garage has now grown into one of the most trusted names in car waxing services. Our commitment to quality, attention to detail, and exceptional customer service has earned us a loyal customer base and numerous industry awards.</p>
+            </div>
+            
+            <div class="about-mission">
+              <h3>Our Mission</h3>
+              <p>At ShineTime, our mission is to provide the highest quality car waxing services using premium products and techniques, while offering an exceptional customer experience. We believe that every vehicle deserves to look its best, and we're dedicated to making professional-grade waxing services accessible to everyone.</p>
+            </div>
+            
+            <div class="about-values">
+              <h3>Our Values</h3>
+              <ul>
+                <li><strong>Quality:</strong> We use only the finest products and techniques to ensure the best results.</li>
+                <li><strong>Integrity:</strong> We're honest and transparent in all our dealings with customers.</li>
+                <li><strong>Innovation:</strong> We continuously seek new ways to improve our services and customer experience.</li>
+                <li><strong>Community:</strong> We're committed to giving back to the communities we serve.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modals -->
+    <div class="modal" id="login-modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Login</h2>
+        <form id="login-form">
+          <div class="form-group">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <p>Don't have an account? <a href="#" id="switch-to-signup">Sign up</a></p>
+      </div>
+    </div>
+
+    <div class="modal" id="signup-modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+          <div class="form-group">
+            <label for="signup-name">Full Name</label>
+            <input type="text" id="signup-name" required>
+          </div>
+          <div class="form-group">
+            <label for="signup-email">Email</label>
+            <input type="email" id="signup-email" required>
+          </div>
+          <div class="form-group">
+            <label for="signup-password">Password</label>
+            <input type="password" id="signup-password" required>
+          </div>
+          <div class="form-group">
+            <label for="signup-confirm">Confirm Password</label>
+            <input type="password" id="signup-confirm" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="#" id="switch-to-login">Login</a></p>
+      </div>
+    </div>
+
+    <div class="modal" id="payment-modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Payment Details</h2>
+        <div id="payment-details">
+          <p><strong>Service:</strong> <span id="payment-service"></span></p>
+          <p><strong>Date:</strong> <span id="payment-date"></span></p>
+          <p><strong>Time:</strong> <span id="payment-time"></span></p>
+          <p><strong>Price:</strong> $<span id="payment-price"></span></p>
+          <p><strong>Stars you'll earn:</strong> <span id="payment-stars"></span> <i class="fas fa-star"></i></p>
+        </div>
+        <form id="payment-form">
+          <div class="form-group">
+            <label for="card-name">Name on Card</label>
+            <input type="text" id="card-name" required>
+          </div>
+          <div class="form-group">
+            <label for="card-number">Card Number</label>
+            <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+          </div>
+          <div class="card-details">
+            <div class="form-group">
+              <label for="card-expiry">Expiry Date</label>
+              <input type="text" id="card-expiry" placeholder="MM/YY" required>
+            </div>
+            <div class="form-group">
+              <label for="card-cvc">CVC</label>
+              <input type="text" id="card-cvc" placeholder="123" required>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Complete Payment</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="success-modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="success-message">
+          <i class="fas fa-check-circle"></i>
+          <h2>Booking Confirmed!</h2>
+          <p>Your appointment has been successfully booked.</p>
+          <p>You can view your appointment details in your profile.</p>
+          <button class="btn btn-primary" id="view-profile-btn">View Profile</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <i class="fas fa-car-side"></i>
+          <h2>ShineTime</h2>
+          <p>Premium Car Waxing Services</p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#" data-page="home">Home</a></li>
+            <li><a href="#" data-page="services">Services</a></li>
+            <li><a href="#" data-page="rewards">Rewards</a></li>
+            <li><a href="#" data-page="booking">Book Now</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-map-marker-alt"></i> 123 Shine Street, Cartown</p>
+          <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+          <p><i class="fas fa-envelope"></i> info@shinetime.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ShineTime. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
